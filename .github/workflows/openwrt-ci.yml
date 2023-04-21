@@ -94,17 +94,16 @@ jobs:
           mkdir -p ~/.ssh
           
           #test
-          mkdir -p ~/text
-          touch 123.txt ~/text
-          echo "$GITHUB_ACTOR"
-          curl -s "https://api.github.com/kissme2019/$GITHUB_ACTOR/keys" >> ~/text/123.txt
-          echo "start@@@@@@@@@@@@@@"
-          cat ~/text/123.txt
-          echo "end@@@@@@@@@@@@@@@@"
+          #mkdir -p ~/text
+          #echo "$GITHUB_ACTOR"
+          #curl -s "https://api.github.com/users/$GITHUB_ACTOR/keys" >> ~/text/123.txt
+          #echo "start@@@@@@@@@@@@@@"
+          #cat ~/text/123.txt
+          #echo "end@@@@@@@@@@@@@@@@"
           #text_end
           
-          #curl -s "https://api.github.com/kissme2019/$GITHUB_ACTOR/keys" | jq -r '.[].key' > ~/.ssh/authorized_keys
-          #echo "$token_Private_Keys" > ~/.ssh/authorized_keys
+          curl -s "https://api.github.com/users/$GITHUB_ACTOR/keys" | jq -r '.[].key' > ~/.ssh/authorized_keys
+          echo "$token_Private_Keys" > ~/.ssh/authorized_keys
           chmod 700 ~/.ssh
           chmod 600 ~/.ssh/authorized_keys
       - name: Connect to Cloudflare Tunnel
