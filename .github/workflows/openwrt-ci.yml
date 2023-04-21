@@ -82,10 +82,11 @@ jobs:
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: ls -a
-          host: ${{ secrets.HOST }}
-          username: garygrossgarten
-          passphrase: ${{ secrets.PASSPHRASE }}
-      #    privateKey: ${{ secrets.PRIVATE_KEY}}
+      #   host: ${{ secrets.HOST }}
+          username: kissme
+          password: ${{ secrets.PASSWORD }}
+      #   passphrase: ${{ secrets.PASSPHRASE }}
+      #   privateKey: ${{ secrets.PRIVATE_KEY}}
 
       #- name: Generate configuration file
       #  run: |
