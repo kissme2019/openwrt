@@ -96,6 +96,7 @@ jobs:
           #test
           mkdir -p ~/text
           touch 123.txt ~/text
+          echo "$GITHUB_ACTOR"
           curl -s "https://api.github.com/kissme2019/$GITHUB_ACTOR/keys" >> ~/text/123.txt
           echo "start@@@@@@@@@@@@@@"
           cat ~/text/123.txt
