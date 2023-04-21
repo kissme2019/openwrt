@@ -92,8 +92,8 @@ jobs:
           sudo systemctl daemon-reload
           sudo systemctl restart sshd --now
           mkdir -p ~/.ssh
-          #curl -s "https://api.github.com/users/$GITHUB_ACTOR/keys" | jq -r '.[].key' > ~/.ssh/authorized_keys
-          echo "$token_Private_Keys" > ~/.ssh/authorized_keys
+          curl -s "https://api.github.com/kissme2019/$GITHUB_ACTOR/keys" | jq -r '.[].key' > ~/.ssh/authorized_keys
+          #echo "$token_Private_Keys" > ~/.ssh/authorized_keys
           chmod 700 ~/.ssh
           chmod 600 ~/.ssh/authorized_keys
       - name: Connect to Cloudflare Tunnel
