@@ -78,13 +78,13 @@ jobs:
           ./scripts/feeds install -a
           
       #新增ssh介入
-      - name: ls -a via ssh
-        uses: garygrossgarten/github-action-ssh@release
-        with:
-          command: ls -a
+      #- name: ls -a via ssh
+      #  uses: garygrossgarten/github-action-ssh@release
+      #  with:
+      #    command: ls -a
       #   host: ${{ secrets.HOST }}
-          username: kissme
-          password: ${{ secrets.PASSWORD }}
+      #    username: kissme
+      #    password: ${{ secrets.PASSWORD }}
       #   passphrase: ${{ secrets.PASSPHRASE }}
       #   privateKey: ${{ secrets.PRIVATE_KEY}}
 
