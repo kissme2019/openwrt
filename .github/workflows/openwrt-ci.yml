@@ -78,6 +78,7 @@ jobs:
           ./scripts/feeds install -a
           
       ####新增ssh介入
+      - name: ssh
       - uses: actions/checkout@v3
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
