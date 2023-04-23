@@ -78,20 +78,9 @@ jobs:
           ./scripts/feeds install -a
           
       ####新增ssh介入
-      
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup SSH server for Actor
-        run: |
-          sudo apt update && sudo apt install -qy openssh-server
-          echo "PasswordAuthentication no" | sudo tee -a /etc/ssh/sshd_config
-          echo "ChallengeResponseAuthentication no" | sudo tee -a /etc/ssh/sshd_config
-          echo 'Match Address 127.0.0.1'        | sudo tee -a /etc/ssh/sshd_config
-          echo '    PasswordAuthentication yes' | sudo tee -a /etc/ssh/sshd_config
-          echo '    PermitRootLogin yes'        | sudo tee -a /etc/ssh/sshd_config
-          sudo systemctl daemon-reload
-          sudo systemctl restart sshd --now
-          mkdir -p ~/.ssh
+      - uses: actions/checkout@v3
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
           
           #test
           #mkdir -p ~/text
